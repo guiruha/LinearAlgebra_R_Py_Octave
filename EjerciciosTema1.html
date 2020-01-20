@@ -383,9 +383,147 @@ $(document).ready(function () {
 
 <div id="pregunta-1" class="section level3">
 <h3>Pregunta 1:</h3>
+<div id="son-los-numeros-enteros-z-un-cuerpopor-que" class="section level4">
+<h4>¿Son los números enteros, Z, un cuerpo?¿Por qué?</h4>
 <p>
-Los números enteros no son un cuerpo porque no cumplen la condición de que todo elemento del conjunto deba tener un inverso. Por ejemplo 2 no tiene inverso que sea un número entero.&quot;
+Los números enteros no son un cuerpo porque no cumplen la condición de que todo elemento del conjunto deba tener un inverso. Por ejemplo 2 no tiene inverso que sea un número entero.
 </p>
+</div>
+</div>
+<div id="pregunta-2" class="section level3">
+<h3>Pregunta 2:</h3>
+<div id="realiza-las-siguientes-operaciones-y-comprueba-en-r" class="section level4">
+<h4>Realiza las siguientes operaciones y comprueba en R</h4>
+<pre class="r"><code>(2 + 3i) + (1 + 1i)</code></pre>
+<pre><code>## [1] 3+4i</code></pre>
+<pre class="r"><code>(1 + 1i) + (1 - 1i)</code></pre>
+<pre><code>## [1] 2+0i</code></pre>
+<pre class="r"><code>## Utilizamos la libreria polynom para escribir (x**2 + x + 1) + (x - 1)
+p &lt;- polynomial(coef= c(1, 1, 1))
+q &lt;- polynomial(coef = c(-1, 1))
+p + q</code></pre>
+<pre><code>## 2*x + x^2</code></pre>
+</div>
+</div>
+<div id="pregunta-3" class="section level3">
+<h3>Pregunta 3:</h3>
+<div id="realiza-los-siguientes-productos-y-comprueba-en-r" class="section level4">
+<h4>Realiza los siguientes productos y comprueba en R</h4>
+<pre class="r"><code>(2 + 3i) * (1 + 1i)</code></pre>
+<pre><code>## [1] -1+5i</code></pre>
+<pre class="r"><code>(1 + 1i) * (1 - 1)</code></pre>
+<pre><code>## [1] 0+0i</code></pre>
+<pre class="r"><code>## (x + 1) ** 2
+i &lt;- polynomial(c(1, 1))
+i ** 2</code></pre>
+<pre><code>## 1 + 2*x + x^2</code></pre>
+<pre class="r"><code>## (x + 1) * (x -1)
+j &lt;- polynomial(c(1, 1))
+k &lt;- polynomial(c(1, -1))
+j * k</code></pre>
+<pre><code>## 1 - x^2</code></pre>
+</div>
+</div>
+<div id="pregunta-4" class="section level3">
+<h3>Pregunta 4:</h3>
+<div id="calcula-el-modulo-de-los-siguientes-complejos" class="section level4">
+<h4>Calcula el módulo de los siguientes complejos</h4>
+<pre class="r"><code>Mod(2 + 3i) # --&gt; sqrt((2 ** 2) + (3 ** 2))</code></pre>
+<pre><code>## [1] 3.605551</code></pre>
+<pre class="r"><code>Mod(1)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>Mod((2 + 3i) + (1 + 1i)) # --&gt; sqrt((3 ** 2) + (4 ** 2))</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>Mod((2 + 3i) * (1 + 1i))</code></pre>
+<pre><code>## [1] 5.09902</code></pre>
+<pre class="r"><code>Mod((1 + 1i) * (1 - 1i))</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+</div>
+<div id="pregunta-5" class="section level3">
+<h3>Pregunta 5:</h3>
+<div id="indica-el-grado-de-los-siguientes-polinomios" class="section level4">
+<h4>Indica el grado de los siguientes polinomios</h4>
+<p><span class="math inline">\(2x + 2\)</span> </p>
+<p><span class="math inline">\(x^5 + 3x + 2\)</span> </p>
+<p><span class="math inline">\((x² + x + 1)(x - 1)\)</span> </p>
+<p><span class="math inline">\((x + 1)²\)</span> </p>
+<pre class="r"><code>p &lt;- polynomial(c(2, 2))
+p</code></pre>
+<pre><code>## 2 + 2*x</code></pre>
+<pre class="r"><code>length(p) - 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>q &lt;- polynomial(c(2, 3, 0, 0, 0, 1))
+q</code></pre>
+<pre><code>## 2 + 3*x + x^5</code></pre>
+<pre class="r"><code>length(p) - 1</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>r &lt;- polynomial(c(-1, 0, 0, 1))
+r</code></pre>
+<pre><code>## -1 + x^3</code></pre>
+<pre class="r"><code>length(r) - 1</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>s &lt;- polynomial(c(1, 2, 1))
+s</code></pre>
+<pre><code>## 1 + 2*x + x^2</code></pre>
+<pre class="r"><code>length(s) - 1</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+</div>
+<div id="pregunta-6" class="section level3">
+<h3>Pregunta 6</h3>
+<div id="son-iguales-los-siguientes-polinomios" class="section level4">
+<h4>¿Son iguales los siguientes polinomios?</h4>
+<p><span class="math inline">\((x + 1)^2\)</span> y <span class="math inline">\(x^2 + 1\)</span></p>
+<p><span class="math inline">\((x + 1)^2\)</span> y <span class="math inline">\(x^2 + 2x + 1\)</span></p>
+<p><span class="math inline">\((x + 1)^3\)</span> y <span class="math inline">\(x^3 + 1\)</span></p>
+<p><span class="math inline">\((x + 1)^3\)</span> y <span class="math inline">\(x^3 + 3x² 1\)</span></p>
+<pre class="r"><code>p &lt;- polynomial(c(1, 1))
+pp &lt;- polynomial(c(1, 0, 1))
+q &lt;- polynomial(c(1, 2, 1))
+ppp &lt;- polynomial(c(1, 0, 0, 1))
+r &lt;- polynomial(c(1, 3, 3, 1))
+# (x + 1)^2 == x^2 + 1
+p^2 == pp</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># (x + 1)^2 == x^2 + 2x + 1
+p^2 == q</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># (x + 1)^3 == x^3 + 1
+p^3 == r</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># (x + 1)^3 == x^3 + 3x^2 + 3x + 1
+p^3 == ppp</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+</div>
+<div id="pregunta-7" class="section level3">
+<h3>Pregunta 7:</h3>
+<div id="encuentra-las-raices-de-los-siguiente-polinomios" class="section level4">
+<h4>Encuentra las raíces de los siguiente polinomios</h4>
+<p><span class="math inline">\(2x + 2\)</span></p>
+<p><span class="math inline">\(x^5 + 3x + 2\)</span></p>
+<p><span class="math inline">\((x + 1)^2\)</span></p>
+<p><span class="math inline">\((x + 1)(x - 1)\)</span></p>
+<pre class="r"><code>p &lt;- polynomial(c(2, 2))
+q &lt;- polynomial(c(2, 3, 0, 0, 0, 1))
+r &lt;- polynomial(c(1, 2, 1))
+s &lt;- polynomial(c(-1, 0, 1))
+# Raiz de 2x + 2
+polyroot(p)</code></pre>
+<pre><code>## [1] -1+0i</code></pre>
+<pre class="r"><code># Raíz de x^5 + 3x + 2
+polyroot(q)</code></pre>
+<pre><code>## [1] -0.6328345+0.000000i -0.7484685+0.995434i -0.7484685-0.995434i
+## [4]  1.0648858-0.950546i  1.0648858+0.950546i</code></pre>
+<pre class="r"><code># Raíz de (x + 1)^2
+polyroot(r)</code></pre>
+<pre><code>## [1] -1-0i -1+0i</code></pre>
+<pre class="r"><code># Raíz de (x + 1)(x - 1)
+
+polyroot(s)</code></pre>
+<pre><code>## [1]  1+0i -1+0i</code></pre>
+</div>
 </div>
 
 
