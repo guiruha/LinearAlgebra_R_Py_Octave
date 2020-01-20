@@ -12,6 +12,63 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Pregunta 1:
-  <p>Los números enteros no son un cuerpo porque no cumplen la condición de que todo elemento del conjunto deba tener un inverso. Por ejemplo 2 no tiene inverso que sea un número entero."</p>
+#### ¿Son los números enteros, Z, un cuerpo?¿Por qué?
+  <p>Los números enteros no son un cuerpo porque no cumplen la condición de que todo elemento del conjunto deba tener un inverso. Por ejemplo 2 no tiene inverso que sea un número entero.</p>
+  
+### Pregunta 2:
+#### Realiza las siguientes operaciones y comprueba en R
 
+```{r}
+library(polynom)
+library(pracma)
+(2 + 3i) + (1 + 1i)
+(1 + 1i) + (1 - 1i)
+## (x**2 + x + 1) + (x - 1)
+p <- polynomial(coef= c(1, 1, 1))
+q <- polynomial(coef = c(-1, 1))
+p + q
+```
+
+
+### Pregunta 3:
+#### Realiza los siguientes productos y comprueba en R
+
+```{r}
+(2 + 3i) * (1 + 1i)
+(1 + 1i) * (1 - 1)
+## (x + 1) ** 2
+## (x + 1) * (x -1)
+```
+
+
+### Pregunta 4:
+#### Calcula el módulo de los siguientes complejos
+
+```{r}
+Mod(2 + 3i) # --> sqrt((2 ** 2) + (3 ** 2))
+Mod(1)
+Mod((2 + 3i) + (1 + 1i)) # --> sqrt((3 ** 2) + (4 ** 2))
+Mod((2 + 3i) * (1 + 1i))
+Mod((1 + 1i) * (1 - 1i))
+```
+
+### Pregunta 5:
+#### Indica el grado de los siguientes polinomios
+
+$2x + 2$ 
+$x^5 + 3x + 2$ 
+$(x² + x + 1)(x - 1)$ 
+$(x + 1)²$ 
+
+```{r}
+p <- polynomial(c(2, 2))
+lenght(p) - 1
+q <
+```
+
+
+### Pregunta 6 (hecha con R no aporta nada)
+
+### Pregunta 7 (hecha con R no aporta nada):
+#### Encuentra las raíces de los siguiente polinomios
 
