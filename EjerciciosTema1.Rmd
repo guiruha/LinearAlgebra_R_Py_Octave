@@ -1,0 +1,17 @@
+---
+title: "Preliminares"
+author: "Guillem"
+date: "20 de enero de 2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Pregunta 1:
+  <p>Los números enteros no son un cuerpo porque no cumplen la condición de que todo elemento del conjunto deba tener un inverso. Por ejemplo 2 no tiene inverso que sea un número entero."</p>
+
+

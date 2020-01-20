@@ -1,0 +1,89 @@
+---
+title: "Complex_numbers_R"
+author: "Guillem"
+date: "20 de enero de 2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# AHORA MISMO ESTAMOS UTILIZANDO R NATIVO de RSTUDIO
+
+z1 <- 2 + 1i # Definimos el complejo de forma binómica
+z1
+
+z2 <- complex(real = 2, imaginary = -1) # Definimos mediante parte real e imaginaria
+z2
+
+z3 <- complex(modulus = 2, argument = pi) # Definimos mediante módulo y argumento (Forma Polar)
+z3
+
+typeof(z1)
+
+typeof(z2)
+
+typeof(z3)
+
+#Parte Real
+Re(z1)
+Re(z3)
+
+#Parte Imaginaria
+Im(z1)
+Im(z3)
+
+#Conjugado
+Conj(z1)
+Conj(z3)
+
+#Módulo o Norma
+Mod(z2)
+
+#Argumento Principal --> arctan(a/b)
+Arg(z3)
+
+#Operaciones básicas con números complejos
+z1 + z2
+z1 * z2
+z1 - z2
+```
+
+```{python}
+# HEMOS CAMBIADO A PYTHON
+z1 = 2 + 1j # Definimos el complejo de forma binómica
+z1
+
+z2 = complex(1, 7)
+z2
+
+type(z1)
+
+type(z2)
+
+z1.real
+# Parte Real
+
+z2. imag
+#Parte Imaginaria
+
+z1.conjugate()
+#Conjugados
+
+import cmath
+abs(z1)
+#Calculamos la norma o módulo
+
+cmath.phase(z2)
+#Caculamos el argumento
+
+#La operaciones básicas son las mismas
+
+#Los cáculos en OCTAVE son muy similares, así que no los incluiré en este markdown
+```
+
+
