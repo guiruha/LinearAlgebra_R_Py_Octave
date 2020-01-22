@@ -1,0 +1,148 @@
+---
+title: "Matrix with R"
+author: "Guillem"
+date: "22 de enero de 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creación de Matrices
+
+```{r}
+# Para crear una matriz fila
+
+row = matrix(c(1, 2, 3, 4), nrow = 1)
+row
+# Para crear una matriz columna
+col = matrix(c(1, 2, 3, 4), ncol= 1)
+col
+
+A = matrix(c(1, 1, 3, 4, 2, 5, 2, -2, -1, 3, -1, 5), nrow = 3, ncol = 4, byrow = TRUE)
+A
+
+B = matrix(c(1, 0, 2, 3, 3, 2, 1, -2, 3, 1, 3, 2), nrow = 3, byrow= FALSE)
+B
+
+# Se pueden crear matrices con la funcion bind()
+
+C = rbind(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))
+C
+
+D = cbind(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))
+D
+
+# Para acceder a un elemento de la matriz [fila, col]
+
+A[3, 3] # elemento a33
+
+A[1, ] # primera fila
+
+A[, 2] # segunda columna
+
+# Para crear una matriz nula
+
+O = matrix(0, nrow = 3, ncol = 3)
+O
+
+U = matrix(1, nrow = 3, ncol = 1) # Matriz unitaria
+U
+
+#Para crear una matriz diagonal
+
+E = diag(c(1, 2, 3, 4, 5, 6))
+E
+ #Para obtener los elementos de la diagonal de una Matriz
+
+M = rbind(c(1, 0, 1), c(2, -1, 5), c(3, 3, 2))
+diag(M)
+
+#Para obtener el número de filas y columnas, y su dimensión
+
+nrow(A)
+ncol(A)
+dim(A)
+```
+
+## Manipulación básica de matrices
+
+```{r}
+# Para sumar todos los elementos de la matriz
+
+sum(M)
+
+# Para hacer una suma por fila o columnas
+
+rowSums(M)
+colSums(M)
+
+# Hacer un productorio de todos los elementos
+
+prod(M)
+
+# Calcular la media de todos los elementos
+
+mean(M)
+
+# Media por filas por fila y columna
+
+rowMeans(M)
+colMeans(M)
+```
+
+## Operaciónes con matrices
+
+```{r}
+# Transpuesta de una matriz
+
+t(M)
+
+# Para calcular la traza
+
+sum(diag(M))
+
+# Suma de matrices es básica (Conmutativa)
+
+A + B
+
+A + B == B + A
+
+# Producto por escalares
+
+5 * A
+
+# Producto de matrices (Comprobar que se pueda)
+
+C%*%D
+
+# Si aplicas * se hace producto de aij * bij se debe aplicar %*%
+
+C%*%D == D%*%C #No es conmutativo
+
+
+# Calcula la potencia n-ésima (aproximada) con el paquete Biodem
+library(Biodem)
+
+mtx.exp(C, 2)
+
+library(expm)
+C%^%4 #con el paquete expm
+
+# Calcula el rango de la matriz
+
+qr(A)$rank
+
+# Calcular la inversa (aproximada) de un matriz (si existe)
+
+solve(M) #Si la matriz no es invertible lanza un error
+
+# Comprobar que es la inversa
+
+round(solve(M)%*%M) #el output debe ser la identidad
+
+
+
+```
+
