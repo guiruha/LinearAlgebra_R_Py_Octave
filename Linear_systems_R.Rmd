@@ -1,0 +1,64 @@
+---
+title: "Linear_systems_R"
+author: "Guillem"
+date: "23 de enero de 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# SISTEMA DETERMINADO
+
+```{r}
+A = rbind(c(1, 1, 2), c(2, 4, -3), c(3, 6, -5))
+b = c(9, 1, 0)
+AB = cbind(A,b)
+
+# Comprobado su compatibilidad con Rouché-Frobenius
+qr(A)$rank==qr(AB)$rank
+qr(A)$rank==3 # Sistema compatible determinado
+
+#Solucionar el problema
+solve(A,b) #x = 1, y = 2, z = 3
+
+#Comprobando la solucion
+solution = c(1, 2, 3)
+A%*%solution == b
+
+#UTILIZANDO LA LIBRERIA MATLIB
+A = rbind(c(2,2), c(-1,1))
+b = c(1, 2)
+AB = cbind(A,b)
+
+# Ahora utilizaremos la libreria matlib
+
+#library(matlib)
+# A = rbind(c(2, 2), c(-1, 1))
+# b = c(1, 2)
+# AB = cbind(A,b)
+# showEqn(A,b)
+# Solve(A, b, fractions = TRUE)
+
+#AL no poder utilizar la libreria matlib se dejará este ejercicio apartado hasta que se solucione este problema
+```
+
+# ECUACIONES MATRICIALES
+
+```{r}
+A = rbind(c(0, 4), c(2, 1))
+B = rbind(c(1, -1), c(2, 3))
+C = rbind(c(1, 2), c(3, -2))
+D = rbind(c(-2, 1), c(-1, 1))
+I = diag(1, nrow = 2, ncol = 2)
+
+M = A - (C + D)
+N = 3*(D-B) + 10 * I
+
+X = solve(M,N)
+X
+
+A%*%X + 3*B == (C+D)%*%X + 3*D+10*I
+```
+
