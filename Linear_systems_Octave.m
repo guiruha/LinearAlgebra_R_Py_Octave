@@ -77,3 +77,28 @@ mesh(x,y,z)
 hold off
 view(120,30)
 
+# Sistemas incompatibles
+
+A = [1 1; 1 -1; 2 1], b = [2; 1; 3]; AB = [A b];
+
+rank(A) == rank(AB) #Rouché-Frobenius dmuestra que son incompatibles
+
+x1 = linspace(0, 3, 100);
+x2a = 2-x1;
+x2b = x1 - 1;
+x2c = 3-2*x1;
+plot(x1 , x2a, x1, x2b, x1, x2c)
+
+# Ecuaciones matriciales
+
+A = [0 4; 2 1];
+B = [1 -1; 2 3];
+C = [1 2; 3 -2];
+D = [-2 1; -1 1];
+I = [1 0; 0 1];
+
+M = A-(C+D);
+N = 3*(D-B) + 10*I
+X = linsolve(M,N)
+
+A*X + 3*B == (C+D)*X + 3*D + 10*I
