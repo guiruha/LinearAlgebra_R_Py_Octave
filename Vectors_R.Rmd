@@ -1,0 +1,127 @@
+---
+title: "Vectors_R"
+author: "Guillem"
+date: "26 de enero de 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 0) # Definimos un vector
+x
+
+# Longitud de un vector
+length(x)
+
+# Operaciones aritméticas con vectores
+x = rbind(c(0,3,-1,3,5))
+y = rbind(c(1,2,3,-1,0))
+
+x+y
+
+x-y
+
+2*x
+
+-2*x
+
+# Producto escalar y norma
+
+# Deberemos definir la función productoEscalar:
+
+productoEscalar = function(x,y) {
+  if (length(x) == length(y)) {
+    sum(x*y)
+  } else {
+    print("ERROR: No se puede calcular el producto escalar de estos dos vectores porque no son de la misma dimensión")
+  }
+}
+
+
+productoEscalar(x,y) #Llamamos la función definida
+
+x <- rbind(c(1,2,0,3,-1,1), nrow = 1)
+
+norm(x) # Calculamos la norma de x
+
+# Para calcular la distancia entre dos vectores deberemos definir de nuevo una función
+
+distancia <- function(x,y) {
+  if (length(x) == length(y)) {
+    norm(x-y)
+  } else {
+    print("ERROR: No se puede caluclar la distancia entre estos dos puntos porque no son de la misma dimensión")
+  }
+}
+
+x <- rbind(c(0,3,-1,3,5))
+y <- rbind(c(1,2,3,-1,0))
+distancia(x,y)
+
+# Para calcular el ángulo entre dos vectores debemos otra función
+
+angleRad = function(x,y) {
+  if (lenght(x) == lenght(y)) {
+    acos(productoEscalar(x,y)/norm(x)*norm(y))
+  } else {
+    print("ERROR: No se puede calcular el ángulo entre estos dos vectores porque no son de la misma dimensión")
+  }
+}
+
+# Podemos definir una función para calcular áel ngulo en grados y no radianes
+
+angleGrad = function(x,y) {
+  if (lenght(x) == lenght(y)) {
+    acos(productoEscalar(x,y)/(norm(x)*norm(y)))*360/(2*pi)
+  } else {
+    print("ERROR: No se puede calcular el ángulo entre estos dos vectores porque no son de la misma dimensión")
+  }
+}
+
+# Para hacer la proyección ortogonal definimos otra función 
+proyeccionOrt = function(u,v) {
+  if (length(u) == length(v)) {
+    productoEscalar(u, v)/norm(u)^2*u
+  } else {
+    print("ERROR: No se puede calcular la proyección ortogonal de v sobre u porque  no son de la misma dimensión")
+  }
+}
+
+u= rbind(c(3,1))
+v = rbind(c(1,2))
+
+proyeccionOrt(u,v)
+
+
+# función de producto vectorial
+
+productoVectorial <- function(x,y) {
+  if (length(x) == length(y) & length(x) == 3) {
+    return(c(x[2]*y[3] - x[3]*y[2], -x[1]*y[3]-x[3]*y[1], x[1]*x[2]-x[2]*y[1]))
+  } else {0111
+    print("No se cumplen las condiciones necesarias para calcular el producto vectorial de estos dos vectores")
+  }
+}
+
+x <- c(1,2,3)
+y <- c(0,-1,1)
+
+productoVectorial(x,y)
+
+# función del producto mixto
+
+productoMixto = function(x,y,z){
+  if (length(x) == length(y) & length(x) == length(z) & length(x) == 3) {
+    return(det(rbind(x, y ,z)))
+  } else {
+    print("No se cumplen las condiciones para calcular el producto mixto de estos vectores")
+  }
+}
+
+z <- c(3,5,2)
+productoMixto(x, y, z)
+```
+
