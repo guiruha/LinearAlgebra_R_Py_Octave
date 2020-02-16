@@ -1,0 +1,41 @@
+---
+title: "Diagonalization"
+author: "Guillem"
+date: "9 de febrero de 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejemplo de diagonalización de una matriz cuadrada
+
+```{r}
+A = rbind(c(2,-2, 1), c(2,-8, -2), c(1, -2, 2))
+
+isSymmetric(A)
+eigen(A)
+
+eig <- eigen(A)
+
+eig$values # Valores propios
+
+eig$vectors # Matriz de cambio de base
+
+v1 <- eig$vectors[, 1]
+
+A%*%v1
+
+eig$values[1]*v1
+
+A%*%v1 == eig$values[1]*v1 # Por culpa de los decimales no da exactamente igual
+
+library(dplyr)
+near(A%*%v1, eig$values[1]*v1) # Con la función near de dplyr se soluciona
+
+round(solve(eig$vectors)%*%eig$vectors)
+
+round(solve(eig$vectors)%*%A%*%eig$vectors)#La multiplicación de A por la inversa de la matriz cambio de base y la matriz de cambio de base da como resultado la matriz de los valores propios D
+```
+
